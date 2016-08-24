@@ -6,9 +6,13 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Window;
+import android.view.WindowManager;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebView;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 
@@ -17,11 +21,19 @@ public class MainActivity extends AppCompatActivity {
     private WebView browser;
     private AlertDialog.Builder alertDialog;
     final int version = Build.VERSION.SDK_INT;
+    RelativeLayout statusbar;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Window window = this.getWindow();
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            window.setStatusBarColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
+        }
 
         browser = (WebView) findViewById(R.id.webkit);
         browser.getSettings().setJavaScriptEnabled(true);
@@ -95,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         /**
-         * Intent - Move to next screen
+         * Intent - Move to next activity
          */
         @JavascriptInterface   // must be added for API 17 or higher
         public void moveToNextScreen() {
