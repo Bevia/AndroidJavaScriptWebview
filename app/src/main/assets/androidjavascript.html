@@ -1,0 +1,58 @@
+<html>
+<head>
+    <style>
+        body{
+        background-color: #3f51b5;
+        color:#fff;
+        }
+        input{
+        background-color: #e8eaf6;
+        width: 300px;
+        padding:10px;
+        color: #000;
+        }
+        div#content{
+        padding:10px;
+        background-color: #e8eaf6;
+        color: #000;
+        }
+    </style>
+    <script type="text/javascript">
+    function showAndroidToast(toastmsg) {
+        Android.showToast(toastmsg);
+    }
+    function showAndroidDialog(dialogmsg) {
+        Android.showDialog(dialogmsg);
+    }
+    function moveToScreenTwo() {
+        Android.moveToNextScreen();
+    }
+
+    </script>
+</head>
+<body>
+<center>
+    &nbsp;
+    <h3>Binding JavaScript code to Android code</h3>
+    <div id="content">
+        When developing a web application that's designed specifically for the WebView in your
+        Android application, you can create interfaces between your JavaScript code and client-side
+        Android code. For example, your JavaScript code can call a method in your Android code to
+        display a Dialog, instead of using JavaScript's alert() function
+        <h6>https://developer.android.com/guide/webapps/webview.html</h6>
+    </div>
+    &nbsp;
+    <div>
+        Here are few examples:
+    </div>
+    &nbsp;
+    <div>
+        <input type="button" value="Create new Toast"
+               onClick="showAndroidToast('Toast made by Javascript!')"/><br/>
+        <input type="button" value="Trigger Dialog"
+               onClick="showAndroidDialog('This dialog is triggered by Javascript!')"/><br/>
+        <input type="button" value="Start a new WebView Activity" onClick="moveToScreenTwo()"/>
+    </div>
+</center>
+</body>
+</html>

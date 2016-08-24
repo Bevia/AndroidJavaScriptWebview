@@ -1,0 +1,10 @@
+<resources>
+
+    <string name="app_name">AndroidJSWebView</string>
+    <string name="dialogTxt">Dialog triggered by Java Script</string>
+    <string name="nextscreenmessage">Move into next view?</string>
+    <string name="showDialogTitle">The alertDialog</string>
+    <string name="UrlToLoad">file:///android_asset/androidjavascript.html</string>
+    <string name="newWebViewUrl">https://www.android.com</string>
+
+</resources>
